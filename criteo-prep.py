@@ -50,5 +50,5 @@ def is_number(s):
     except ValueError:
         return False
 
-txt_to_vw("/data/vw/12GB/train.txt", "criteo/click.train.vw",train=True)
-txt_to_vw("/data/vw/12GB/test.txt", "criteo/click.test.vw",train=False)
+txt_to_vw("/data/vw/criteo-display-advertising-dataset/train.txt", "criteo/click.train.vw",train=True)
+txt_to_vw("/data/vw/criteo-display-advertising-dataset/test.txt", "criteo/click.test.vw",train=False)
