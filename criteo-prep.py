@@ -14,7 +14,6 @@ def txt_to_vw(loc_txt, loc_output, train=True):
   print("\nTurning %s into %s. Is_train_set? %s"%(loc_txt,loc_output,train))
   
   with open(loc_output,"w") as outfile, open(loc_txt) as infile:
-
     for e,l in enumerate(infile):
         
         line = l.split('\t')
@@ -36,7 +35,7 @@ def txt_to_vw(loc_txt, loc_output, train=True):
             outfile.write( "%s |i%s |c%s" % (label,numerical_features,categorical_features) )
             
         else: #we dont care about labels
-            outfile.write( "1 |i%s |c%s" % (numerical_features,categorical_features) )
+            outfile.write( "|i%s |c%s" % (numerical_features,categorical_features) )
         
 	    # Reporting progress
         if e % 100000 == 0:
