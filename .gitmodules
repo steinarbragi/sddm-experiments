@@ -1,3 +1,3 @@
-[submodule "kaggle-criteo"]
-	path = kaggle-criteo
+[submodule "kagglecriteo"]
+	path = kagglecriteo
 	url = https://github.com/MLWave/kaggle-criteo
