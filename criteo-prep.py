@@ -5,7 +5,7 @@
 from datetime import datetime
 from csv import DictReader
 
-def csv_to_vw(loc_txt, loc_output, train=True):
+def txt_to_vw(loc_txt, loc_output, train=True):
   """
   Munges a TXT file (loc_txt) to a VW file (loc_output). Set "train"
   to False when munging a test set.
@@ -52,7 +52,7 @@ def is_number(s):
         return False
 
 
-csv_to_vw("criteo/train-head.txt", "criteo/click.train-head.vw",train=True)
+txt_to_vw("criteo/train-head.txt", "criteo/click.train-head.vw",train=True)
 
 
 #csv_to_vw("/data/vw/12GB/train.txt", "criteo/click.train.vw",train=True)
