@@ -1,9 +1,9 @@
 # -*- coding: UTF-8 -*-
-
-
-
 from datetime import datetime
 from csv import DictReader
+import getopt
+import argparse
+import sys
 
 def txt_to_vw(loc_txt, loc_output, train=True):
   """
@@ -11,7 +11,7 @@ def txt_to_vw(loc_txt, loc_output, train=True):
   to False when munging a test set.
   """
   start = datetime.now()
-  print("\nTurning %s into %s. Is_train_set? %s"%(loc_txt,loc_output,train))
+  print("\nTurning %s into %s. Is_train_set? %s"%(loc_txt,loc_output,bool(train)))
   
   with open(loc_output,"w") as outfile, open(loc_txt) as infile:
     for e,l in enumerate(infile):
@@ -50,5 +50,25 @@ def is_number(s):
     except ValueError:
         return False
 
-txt_to_vw("/data/vw/criteo-display-advertising-dataset/train.txt", "criteo/click.train.vw",train=True)
-txt_to_vw("/data/vw/criteo-display-advertising-dataset/test.txt", "criteo/click.test.vw",train=False)
+def str2bool(v):
+    if v.lower() in ('yes', 'true', 't', 'y', '1'):
+        return True
+    elif v.lower() in ('no', 'false', 'f', 'n', '0'):
+        return False
+    else:
+        raise argparse.ArgumentTypeError('Boolean value expected.')
+
+def main(args):
+    txt_to_vw( args.input, args.output, args.train)
+
+if __name__ == "__main__":
+    TRAIN = True
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-o', '--output', type=str, help="Output File", required=True)
+    parser.add_argument('-i', '--input', type=str, help="Input File", required=True)
+    parser.add_argument('-t', '--train', type=str2bool, nargs='?', const=True, default=TRAIN, help="Training mode")
+    args = parser.parse_args()
+    main(args)
+
+#txt_to_vw("/data/vw/criteo-display-advertising-dataset/train.txt", "criteo/click.train.vw",train=True)
+#txt_to_vw("/data/vw/criteo-display-advertising-dataset/test.txt", "criteo/click.test.vw",train=False)
