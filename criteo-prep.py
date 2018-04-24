@@ -22,7 +22,7 @@ def csv_to_vw(loc_txt, loc_output, train=True):
         numerical_features = ""
         categorical_features = ""
         for idx, v in enumerate(line[1:]):
-            if is_number(v) and len(str(v)) > 0: #check for nonempty numerical values
+            if is_number(v) and len(str(v)) > 0: #find nonempty numerical values
                 numerical_features += " %s:%s" % (idx,v)
             elif len(str(v)) > 0: #nonempty categorical values
                 categorical_features += " %s" % v
@@ -52,8 +52,8 @@ def is_number(s):
         return False
 
 
-#csv_to_vw("criteo/train-head.txt", "criteo/click.train.vw",train=True)
+csv_to_vw("criteo/train-head.txt", "criteo/click.train-head.vw",train=True)
 
 
-csv_to_vw("/data/vw/12GB/train.txt", "criteo/click.train.vw",train=True)
-csv_to_vw("/data/vw/12GB/test.txt", "criteo/click.test.vw",train=False)
+#csv_to_vw("/data/vw/12GB/train.txt", "criteo/click.train.vw",train=True)
+#csv_to_vw("/data/vw/12GB/test.txt", "criteo/click.test.vw",train=False)
