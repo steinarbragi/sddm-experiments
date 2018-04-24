@@ -3,13 +3,20 @@
 Experimenting with VW using multiple datasets. 
 This repo will contain preprocessing scripts and tools.
 
-Preprocessing scripts for VW
+### DONE:
+* Prep:
+    * Criteo ad clicks
 
 ### TODO:
 * Prep:
     * Netflix
     * MNIST
-
-### DONE:
-* Prep
-    * Criteo ad clicks
+* Benchmark
+    * CPU
+    * RAM
+    * Time
+* Plot
+    * Convergence
+    * Acc, loss
+* Try distributing on cluster with hadoop
+* Try combining online + batch learning
