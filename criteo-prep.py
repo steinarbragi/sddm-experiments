@@ -62,11 +62,11 @@ def main(args):
     txt_to_vw( args.input, args.output, args.train)
 
 if __name__ == "__main__":
-    TRAIN = True
+    TRAIN = False
     parser = argparse.ArgumentParser()
-    parser.add_argument('-o', '--output', type=str, help="Output File", required=True)
     parser.add_argument('-i', '--input', type=str, help="Input File", required=True)
-    parser.add_argument('-t', '--train', type=str2bool, nargs='?', const=True, default=TRAIN, help="Training mode")
+    parser.add_argument('-o', '--output', type=str, help="Output File", required=True)
+    parser.add_argument('-t', '--train', type=str2bool, nargs='?', const=True, default=TRAIN, help="Training? (Default: false)")
     args = parser.parse_args()
     main(args)
 
