@@ -15,7 +15,7 @@ def txt_to_vw(loc_txt, loc_output, train=True):
   
   with open(loc_output,"w") as outfile, open(loc_txt) as infile:
 
-      for l in infile:
+    for e,l in enumerate(infile):
         
         line = l.split('\t')
         #Creating the features
@@ -38,11 +38,11 @@ def txt_to_vw(loc_txt, loc_output, train=True):
         else: #we dont care about labels
             outfile.write( "1 |i%s |c%s" % (numerical_features,categorical_features) )
         
-	  #Reporting progress
-      #if e % 1000000 == 0:
-      #  print("%s\t%s"%(e, str(datetime.now() - start)))
+	    # Reporting progress
+        if e % 100000 == 0:
+          print("%s\t%s"%(e, str(datetime.now() - start)))
 
-  #print("\n %s Task execution time:\n\t%s"%(e, str(datetime.now() - start)))
+    print("\n %s Task execution time:\n\t%s"%(e, str(datetime.now() - start)))
 
 def is_number(s):
     try:
@@ -51,9 +51,5 @@ def is_number(s):
     except ValueError:
         return False
 
-
-txt_to_vw("criteo/train-head.txt", "criteo/click.train-head.vw",train=True)
-
-
-#csv_to_vw("/data/vw/12GB/train.txt", "criteo/click.train.vw",train=True)
-#csv_to_vw("/data/vw/12GB/test.txt", "criteo/click.test.vw",train=False)
+txt_to_vw("/data/vw/12GB/train.txt", "criteo/click.train.vw",train=True)
+txt_to_vw("/data/vw/12GB/test.txt", "criteo/click.test.vw",train=False)
