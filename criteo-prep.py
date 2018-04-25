@@ -21,7 +21,7 @@ def txt_to_vw(loc_txt, loc_output, train=True):
         numerical_features = ""
         categorical_features = ""
         for idx, v in enumerate(line[1:]):
-            if is_number(v) and len(str(v)) > 0: #find nonempty numerical values
+            if idx < 13 and is_number(v) and len(str(v)) > 0: #find nonempty numerical values
                 numerical_features += " %s:%s" % (idx,v)
             elif len(str(v)) > 0: #nonempty categorical values
                 categorical_features += " %s" % v
@@ -62,11 +62,11 @@ def main(args):
     txt_to_vw( args.input, args.output, args.train)
 
 if __name__ == "__main__":
-    TRAIN = False
+    TRAIN = True
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--input', type=str, help="Input File", required=True)
     parser.add_argument('-o', '--output', type=str, help="Output File", required=True)
-    parser.add_argument('-t', '--train', type=str2bool, nargs='?', const=True, default=TRAIN, help="Training? (Default: false)")
+    parser.add_argument('-t', '--train', type=str2bool, nargs='?', const=True, default=TRAIN, help="Training? (Default: yes)")
     args = parser.parse_args()
     main(args)
 
