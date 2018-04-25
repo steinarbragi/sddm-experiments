@@ -1,7 +1,5 @@
 # -*- coding: UTF-8 -*-
 from datetime import datetime
-from csv import DictReader
-import getopt
 import argparse
 import sys
 
