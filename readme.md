@@ -7,10 +7,9 @@ This repo will contain preprocessing scripts and tools.
 * Prep:
     * Criteo ad clicks
     * Netflix
+    * MNIST
 
 ### TODO:
-* Prep:
-    * MNIST
 * Benchmark
     * CPU
     * RAM
