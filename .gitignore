@@ -2,3 +2,5 @@
 data*
 netflix/training*
 netflix/*.txt
+mnist/mnist-8m/
+*.DS_Store

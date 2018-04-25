@@ -18,7 +18,7 @@ def netflix_train(loc_txt, loc_output):
     loc_text should point to a folder containing a collection of text files.
     Each text file should contain all ratings for a single movie. 
     
-    First line contains the movie ID. subsequent line format: userid:score:date
+    First line contains the movie ID. subsequent line format: userid,score,date
 
     Example for movie id 20, mv_0000020.txt:
 

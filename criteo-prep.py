@@ -3,7 +3,9 @@ from datetime import datetime
 import argparse
 import sys
 
-def txt_to_vw(loc_txt, loc_output, train=True):
+TRAIN = True
+
+def txt_to_vw(loc_txt, loc_output, train):
   """
   Munges a TXT file (loc_txt) to a VW file (loc_output). Set "train"
   to False when munging a test set.
@@ -60,7 +62,7 @@ def main(args):
     txt_to_vw( args.input, args.output, args.train)
 
 if __name__ == "__main__":
-    TRAIN = True
+    
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--input', type=str, help="Input File", required=True)
     parser.add_argument('-o', '--output', type=str, help="Output File", required=True)
