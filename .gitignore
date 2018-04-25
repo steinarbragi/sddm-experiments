@@ -1,2 +1,4 @@
 *.vw
 data*
+netflix/training_set*
+netflix/*.txt
