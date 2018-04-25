@@ -6,10 +6,10 @@ This repo will contain preprocessing scripts and tools.
 ### DONE:
 * Prep:
     * Criteo ad clicks
+    * Netflix
 
 ### TODO:
 * Prep:
-    * Netflix
     * MNIST
 * Benchmark
     * CPU
