@@ -50,7 +50,7 @@ def netflix_train(loc_txt, loc_output):
                 for l in infile:
                     #write each line to file in vw format
                     row = l.split(',')
-                    outfile.write("%s |u %s |i %s" % (row[1],row[0],m_id))
+                    outfile.write("%s |u %s |i %s\n" % (row[1],row[0],m_id))
     	            # Reporting progress
                     tot += 1
 
